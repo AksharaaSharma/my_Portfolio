@@ -919,3 +919,58 @@
                     </div>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i>
+                        <!-- Add this to the end of your existing HTML file -->
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/AksharaSharma" class="footer-icon" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/AksharaSharma" class="footer-icon" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:akshara.sharma.contact@gmail.com" class="footer-icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+919717194402" class="footer-icon">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <p class="copyright">© 2025 Akshara Sharma. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            duration: 800,
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
