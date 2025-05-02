@@ -55,6 +55,139 @@
             overflow-x: hidden;
         }
 
+        /* Animated Background Styles */
+        .animated-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          overflow: hidden;
+        }
+        
+        .bg-gradient {
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(
+            -45deg, 
+            var(--gradient-start) 0%, 
+            var(--bg-primary) 25%, 
+            var(--accent-light) 50%, 
+            var(--bg-primary) 75%, 
+            var(--gradient-end) 100%
+          );
+          opacity: 0.1;
+          animation: gradientBG 15s ease infinite;
+          z-index: 1;
+        }
+        
+        .floating-shapes {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
+        
+        .shape {
+          position: absolute;
+          background: var(--accent);
+          border-radius: 50%;
+          opacity: 0.05;
+          animation: floatAnimation 20s linear infinite;
+        }
+        
+        .shape:nth-child(1) {
+          width: 200px;
+          height: 200px;
+          top: 10%;
+          left: 10%;
+          animation-delay: 0s;
+          animation-duration: 30s;
+        }
+        
+        .shape:nth-child(2) {
+          width: 150px;
+          height: 150px;
+          top: 60%;
+          left: 20%;
+          animation-delay: 3s;
+          animation-duration: 25s;
+        }
+        
+        .shape:nth-child(3) {
+          width: 300px;
+          height: 300px;
+          top: 40%;
+          left: 70%;
+          animation-delay: 6s;
+          animation-duration: 35s;
+        }
+        
+        .shape:nth-child(4) {
+          width: 120px;
+          height: 120px;
+          top: 20%;
+          left: 80%;
+          animation-delay: 9s;
+          animation-duration: 28s;
+        }
+        
+        .shape:nth-child(5) {
+          width: 250px;
+          height: 250px;
+          top: 70%;
+          left: 50%;
+          animation-delay: 12s;
+          animation-duration: 32s;
+        }
+        
+        .noise-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+          opacity: var(--header-pattern-opacity);
+          z-index: 3;
+        }
+        
+        @keyframes gradientBG {
+          0% {
+            transform: translate(0%, 0%) rotate(0deg);
+          }
+          50% {
+            transform: translate(-5%, -5%) rotate(180deg);
+          }
+          100% {
+            transform: translate(0%, 0%) rotate(360deg);
+          }
+        }
+        
+        @keyframes floatAnimation {
+          0% {
+            transform: translate(0, 0) scale(1);
+          }
+          25% {
+            transform: translate(10%, 10%) scale(1.1);
+          }
+          50% {
+            transform: translate(5%, -5%) scale(0.9);
+          }
+          75% {
+            transform: translate(-10%, 5%) scale(1.05);
+          }
+          100% {
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
         /* Scroll Styling */
         body::-webkit-scrollbar {
             width: 8px;
