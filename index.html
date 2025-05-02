@@ -3,125 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Akshara Sharma | Portfolio</title>
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS - Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="logo">
-                <h1>My Portfolio</h1>
+                <h1>Akshara Sharma</h1>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pages/about.html">About</a></li>
-                <li><a href="pages/projects.html">Projects</a></li>
-                <li><a href="pages/skills.html">Skills</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
+                <li><a href="index.html" class="nav-item active">Home</a></li>
+                <li><a href="pages/about.html" class="nav-item">About</a></li>
+                <li><a href="pages/experience.html" class="nav-item">Experience</a></li>
+                <li><a href="pages/skills.html" class="nav-item">Skills</a></li>
+                <li><a href="pages/contact.html" class="nav-item">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <img src="assets/images/profile.jpg" alt="Profile Picture" class="profile-image">
-                <h2>Welcome to My Portfolio</h2>
-                <p>Full-stack developer passionate about creating meaningful web experiences</p>
+            <div class="hero-content" data-aos="fade-up">
+                <div class="profile-container">
+                    <img src="assets/images/profile.jpg" alt="Akshara Sharma" class="profile-image">
+                    <div class="profile-backdrop"></div>
+                </div>
+                <h2 class="typing-effect">Hi, I'm Akshara Sharma</h2>
+                <p class="subtitle">Software Developer specializing in AI & Machine Learning</p>
                 <div class="cta-buttons">
-                    <a href="pages/projects.html" class="btn primary">View Projects</a>
-                    <a href="assets/docs/resume.pdf" class="btn secondary" download>Download Resume</a>
+                    <a href="pages/experience.html" class="btn primary"><i class="fas fa-briefcase"></i> View Experience</a>
+                    <a href="assets/docs/resume.pdf" class="btn secondary" download><i class="fas fa-download"></i> Download Resume</a>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="particles"></div>
+            </div>
+        </section>
+
+        <section class="experience-showcase" data-aos="fade-up">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-marker">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Engineer Intern</h3>
+                            <span class="company">Thales</span>
+                            <span class="duration">August 2024 - November 2024</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Noida, India</span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul class="achievement-list">
+                                <li>Designed and deployed an AI-driven system for detecting offensive content in doodles and sketches.</li>
+                                <li>Utilized the CLIP model and Gemini API to deliver high-precision detection and seamless integration, attaining high accuracy of 97.67%.</li>
+                                <li>Executed innovative measures for live tracking of doodles via an advanced graphical interface, achieving detection accuracy aligned with industry standards.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="timeline-marker">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Engineer Intern</h3>
+                            <span class="company">Defence Research & Development Organisation</span>
+                            <span class="duration">May 2024 - July 2024</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Delhi, India</span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul class="achievement-list">
+                                <li>Spearheaded the development of an advanced AI system that achieved 98.35% accuracy in traffic forecasting, leading to a 40% reduction in energy consumption across critical defence networks.</li>
+                                <li>Enhanced network performance by employing deep learning techniques, resulting in a 30% increase in resource allocation efficiency and improved overall security measures for defence applications.</li>
+                                <li>Crafted and executed data analysis protocols utilizing Python libraries such as NumPy and Pandas, processing over 50,000 data points; identified key trends that informed strategic network management actions to improve service reliability.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all" data-aos="fade-up">
+                <a href="pages/experience.html" class="btn">View Full Experience <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section class="projects-highlight" data-aos="fade-up">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-cards">
+                <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card-header">
+                        <i class="fas fa-route project-icon"></i>
+                        <h3>RouteVision AI</h3>
+                    </div>
+                    <p>AI-Powered Traffic Monitoring & Prediction System</p>
+                    <div class="card-footer">
+                        <a href="https://github.com/AksharaSharma/RouteVision" target="_blank" class="btn small"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card-header">
+                        <i class="fas fa-water project-icon"></i>
+                        <h3>Ganga River Quality Forecasting</h3>
+                    </div>
+                    <p>AI-enabled decision support system with 97.86% forecasting accuracy</p>
+                    <div class="card-footer">
+                        <a href="https://github.com/AksharaSharma/GangaQuality" target="_blank" class="btn small"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card-header">
+                        <i class="fas fa-eye project-icon"></i>
+                        <h3>Medical Vision AI</h3>
+                    </div>
+                    <p>Advanced Cataract and Conjunctivitis Detection with 98.65% accuracy</p>
+                    <div class="card-footer">
+                        <a href="https://github.com/AksharaSharma/MedicalVision" target="_blank" class="btn small"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="featured-projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <!-- Featured project cards will go here -->
-                <div class="project-card">
-                    <img src="assets/images/projects/project1.jpg" alt="Project 1">
-                    <h3>Project Title 1</h3>
-                    <p>Brief description of the project and technologies used.</p>
-                    <a href="pages/projects.html#project1" class="btn">Learn More</a>
-                </div>
-                <div class="project-card">
-                    <img src="assets/images/projects/project2.jpg" alt="Project 2">
-                    <h3>Project Title 2</h3>
-                    <p>Brief description of the project and technologies used.</p>
-                    <a href="pages/projects.html#project2" class="btn">Learn More</a>
-                </div>
-                <div class="project-card">
-                    <img src="assets/images/projects/project3.jpg" alt="Project 3">
-                    <h3>Project Title 3</h3>
-                    <p>Brief description of the project and technologies used.</p>
-                    <a href="pages/projects.html#project3" class="btn">Learn More</a>
-                </div>
-            </div>
-            <div class="view-all">
-                <a href="pages/projects.html" class="btn">View All Projects</a>
-            </div>
-        </section>
-
-        <section class="skills-summary">
-            <h2>Skills Overview</h2>
+        <section class="skills-summary" data-aos="fade-up">
+            <h2 class="section-title">Skills Overview</h2>
             <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Front-end</h3>
-                    <ul>
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python (NumPy, Pandas, Scikit-learn)</li>
+                        <li>TensorFlow, OpenCV</li>
+                        <li>C/C++, Java</li>
+                        <li>R, MATLAB</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <ul class="skill-list">
                         <li>HTML5/CSS3</li>
                         <li>JavaScript</li>
                         <li>React</li>
-                        <li>Responsive Design</li>
+                        <li>MySQL</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3>Back-end</h3>
-                    <ul>
-                        <li>Node.js</li>
-                        <li>Express</li>
-                        <li>MongoDB</li>
-                        <li>API Development</li>
+                
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI/ML</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>Generative AI</li>
+                        <li>Computer Vision</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools</h3>
-                    <ul>
-                        <li>Git/GitHub</li>
-                        <li>VS Code</li>
-                        <li>Webpack</li>
-                        <li>Docker</li>
+                
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="skill-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools & Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>Git, GitHub, Linux</li>
+                        <li>LangChain, AutoGen</li>
+                        <li>CrewAI, Haystack Agents</li>
+                        <li>Data Structures and Algorithms</li>
                     </ul>
                 </div>
             </div>
-            <div class="view-all">
-                <a href="pages/skills.html" class="btn">See All Skills</a>
+            <div class="view-all" data-aos="fade-up">
+                <a href="pages/skills.html" class="btn">See Full Skill Set <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section class="publications" data-aos="fade-up">
+            <h2 class="section-title">Publications & Achievements</h2>
+            <div class="publication-item" data-aos="fade-right">
+                <div class="publication-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="publication-content">
+                    <h3>AI-Driven Decision Support System for Real-Time Ganga River Water Quality Monitoring</h3>
+                    <p>International Conference on Ultra-Modern Telecommunications and Control Systems (ICUMT) 2024</p>
+                </div>
+            </div>
+            <div class="achievements">
+                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-award"></i>
+                    <span>Amity Merit Scholarship (2023-2024)</span>
+                </div>
+                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-trophy"></i>
+                    <span>Smart India Hackathon 2024 Finalist</span>
+                </div>
+                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-certificate"></i>
+                    <span>NPTEL Python for Data Science</span>
+                </div>
+                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-certificate"></i>
+                    <span>NPTEL Software Conceptual Design</span>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
+            <div class="footer-info">
+                <h3>Akshara Sharma</h3>
+                <p>Software Developer specializing in AI & Machine Learning</p>
+            </div>
             <div class="footer-links">
                 <a href="pages/about.html">About</a>
-                <a href="pages/projects.html">Projects</a>
+                <a href="pages/experience.html">Experience</a>
                 <a href="pages/skills.html">Skills</a>
                 <a href="pages/contact.html">Contact</a>
             </div>
             <div class="social-links">
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-                <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+                <a href="https://github.com/AksharaSharma" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/AksharaSharma" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:akshara.sharma.contact@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+919717194402"><i class="fas fa-phone"></i></a>
             </div>
-            <p class="copyright">&copy; 2025 Your Name. All rights reserved.</p>
+            <p class="copyright">&copy; 2025 Akshara Sharma. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Typing effect for hero text
+            const text = document.querySelector('.typing-effect');
+            const originalText = text.textContent;
+            text.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    text.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 500);
+            
+            // Particles animation for hero background
+            const particles = document.querySelector('.particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = Math.random() * 10 + 5 + 's';
+                particles.appendChild(particle);
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Active nav item based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').includes(current)) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
