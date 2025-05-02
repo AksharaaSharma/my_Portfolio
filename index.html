@@ -3,340 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akshara Sharma | Portfolio</title>
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" href="assets/fonts/fonts.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS - Animate On Scroll Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <title>Akshara Sharma - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #FF69B4; /* Hot Pink */
+            --secondary-color: #FFC0CB; /* Pink */
+            --accent-color: #FF1493; /* Deep Pink */
+            --text-color: #333;
+            --light-text: #fff;
+            --bg-color: #FFF0F5; /* Lavender Blush */
+            --card-bg: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--light-text);
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .profile-info {
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        section {
+            margin: 2rem 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        .experience-item:last-child, .project-item:last-child, .education-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .experience-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        
+        .company, .project-title {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .position {
+            font-weight: 600;
+        }
+        
+        .date-location {
+            color: #666;
+            font-style: italic;
+            text-align: right;
+        }
+        
+        ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            margin-top: 2rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .experience-header, .project-header {
+                flex-direction: column;
+            }
+            
+            .date-location {
+                text-align: left;
+                margin-top: 0.5rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>Akshara Sharma</h1>
+        <div class="container profile-info">
+            <h1>Akshara Sharma</h1>
+            <p>Software Developer | AI Engineer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:akshara.sharma.contact@gmail.com" style="color: white;">akshara.sharma.contact@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://linkedin.com/in/AksharaSharma" style="color: white;">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <a href="https://github.com/AksharaSharma" style="color: white;">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+919717194402" style="color: white;">+91 9717194402</a>
+                </div>
             </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-item active">Home</a></li>
-                <li><a href="pages/about.html" class="nav-item">About</a></li>
-                <li><a href="pages/experience.html" class="nav-item">Experience</a></li>
-                <li><a href="pages/skills.html" class="nav-item">Skills</a></li>
-                <li><a href="pages/contact.html" class="nav-item">Contact</a></li>
-            </ul>
-        </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content" data-aos="fade-up">
-                <div class="profile-container">
-                    <img src="assets/images/profile.jpg" alt="Akshara Sharma" class="profile-image">
-                    <div class="profile-backdrop"></div>
+    <div class="container">
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">GenTA</div>
+                        <div class="position">AI Engineer Intern</div>
+                    </div>
+                    <div class="date-location">
+                        <div>Apr 2025 - Present</div>
+                        <div>South Korea (Remote)</div>
+                    </div>
                 </div>
-                <h2 class="typing-effect">Hi, I'm Akshara Sharma</h2>
-                <p class="subtitle">Software Developer specializing in AI & Machine Learning</p>
-                <div class="cta-buttons">
-                    <a href="pages/experience.html" class="btn primary"><i class="fas fa-briefcase"></i> View Experience</a>
-                    <a href="assets/docs/resume.pdf" class="btn secondary" download><i class="fas fa-download"></i> Download Resume</a>
-                </div>
+                <ul>
+                    <li>Assisting in developing, fine-tuning, and optimizing AI models across various tasks, including but not limited to artistic style transfer, image and video generation, and object recognition.</li>
+                    <li>Building and configuring robust AI environments using platforms such as TensorFlow, PyTorch, or similar frameworks.</li>
+                    <li>Integrating existing Large Language Models (LLMs) such as GPT, HyperCLOVA X, or similar platforms into cohesive chatbot systems tailored for public library users.</li>
+                </ul>
             </div>
-            <div class="hero-background">
-                <div class="particles"></div>
-            </div>
-        </section>
-
-        <section class="experience-showcase" data-aos="fade-up">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                    <div class="timeline-marker">
-                        <i class="fas fa-briefcase"></i>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">Thales</div>
+                        <div class="position">Software Engineer Intern</div>
                     </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Software Engineer Intern</h3>
-                            <span class="company">Thales</span>
-                            <span class="duration">August 2024 - November 2024</span>
-                            <span class="location"><i class="fas fa-map-marker-alt"></i> Noida, India</span>
-                        </div>
-                        <div class="timeline-body">
-                            <ul class="achievement-list">
-                                <li>Designed and deployed an AI-driven system for detecting offensive content in doodles and sketches.</li>
-                                <li>Utilized the CLIP model and Gemini API to deliver high-precision detection and seamless integration, attaining high accuracy of 97.67%.</li>
-                                <li>Executed innovative measures for live tracking of doodles via an advanced graphical interface, achieving detection accuracy aligned with industry standards.</li>
-                            </ul>
-                        </div>
+                    <div class="date-location">
+                        <div>August 2024 - November 2024</div>
+                        <div>Noida, India</div>
                     </div>
                 </div>
-                
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="timeline-marker">
-                        <i class="fas fa-briefcase"></i>
+                <ul>
+                    <li>Designed and deployed an AI-driven system for detecting offensive content in doodles and sketches.</li>
+                    <li>Utilized the CLIP model and Gemini API to deliver high-precision detection and seamless integration and attained high accuracy of 97.67%.</li>
+                    <li>Executed innovative measures for live tracking of doodles via an advanced graphical interface, achieving detection accuracy aligned with industry standards.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">Defence Research & Development Organisation</div>
+                        <div class="position">Software Engineer Intern</div>
                     </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Software Engineer Intern</h3>
-                            <span class="company">Defence Research & Development Organisation</span>
-                            <span class="duration">May 2024 - July 2024</span>
-                            <span class="location"><i class="fas fa-map-marker-alt"></i> Delhi, India</span>
-                        </div>
-                        <div class="timeline-body">
-                            <ul class="achievement-list">
-                                <li>Spearheaded the development of an advanced AI system that achieved 98.35% accuracy in traffic forecasting, leading to a 40% reduction in energy consumption across critical defence networks.</li>
-                                <li>Enhanced network performance by employing deep learning techniques, resulting in a 30% increase in resource allocation efficiency and improved overall security measures for defence applications.</li>
-                                <li>Crafted and executed data analysis protocols utilizing Python libraries such as NumPy and Pandas, processing over 50,000 data points; identified key trends that informed strategic network management actions to improve service reliability.</li>
-                            </ul>
-                        </div>
+                    <div class="date-location">
+                        <div>May 2024 - July 2024</div>
+                        <div>Delhi, India</div>
                     </div>
                 </div>
-            </div>
-            <div class="view-all" data-aos="fade-up">
-                <a href="pages/experience.html" class="btn">View Full Experience <i class="fas fa-arrow-right"></i></a>
+                <ul>
+                    <li>Spearheaded the development of an advanced AI system that achieved 98.35% accuracy in traffic forecasting, leading to a 40% reduction in energy consumption across critical defence networks.</li>
+                    <li>Enhanced network performance by employing deep learning techniques, resulting in a 30% increase in resource allocation efficiency and improved overall security measures for defence applications.</li>
+                    <li>Crafted and executed data analysis protocols utilizing Python libraries such as NumPy and Pandas, processing over 50,000 data points; identified key trends that informed strategic network management actions to improve service reliability.</li>
+                </ul>
             </div>
         </section>
 
-        <section class="projects-highlight" data-aos="fade-up">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-cards">
-                <div class="project-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="card-header">
-                        <i class="fas fa-route project-icon"></i>
-                        <h3>RouteVision AI</h3>
-                    </div>
-                    <p>AI-Powered Traffic Monitoring & Prediction System</p>
-                    <div class="card-footer">
-                        <a href="https://github.com/AksharaSharma/RouteVision" target="_blank" class="btn small"><i class="fab fa-github"></i> GitHub</a>
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Discourse Lens - Argument Visualiser</div>
+                    <div class="date-location">
+                        <a href="https://github.com/AksharaSharma/discourse-lens" style="color: var(--accent-color);">GitHub</a>
                     </div>
                 </div>
-                
-                <div class="project-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="card-header">
-                        <i class="fas fa-water project-icon"></i>
-                        <h3>Ganga River Quality Forecasting</h3>
-                    </div>
-                    <p>AI-enabled decision support system with 97.86% forecasting accuracy</p>
-                    <div class="card-footer">
-                        <a href="https://github.com/AksharaSharma/GangaQuality" target="_blank" class="btn small"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="card-header">
-                        <i class="fas fa-eye project-icon"></i>
-                        <h3>Medical Vision AI</h3>
-                    </div>
-                    <p>Advanced Cataract and Conjunctivitis Detection with 98.65% accuracy</p>
-                    <div class="card-footer">
-                        <a href="https://github.com/AksharaSharma/MedicalVision" target="_blank" class="btn small"><i class="fab fa-github"></i> GitHub</a>
+                <ul>
+                    <li>Developed an advanced tool that generates 5 types of visualizations to analyze discussions and debates.</li>
+                    <li>Implemented argument mapping capabilities to identify key points, counter-arguments, and supporting evidence within complex conversations.</li>
+                    <li>Created interactive visual representations that help users easily understand the structure and flow of discussions.</li>
+                </ul>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">RouteVision AI – AI-Powered Traffic Monitoring & Prediction</div>
+                    <div class="date-location">
+                        <a href="https://github.com/AksharaSharma/routevision-ai" style="color: var(--accent-color);">GitHub</a>
                     </div>
                 </div>
+                <ul>
+                    <li>Developed an AI-driven system for real-time traffic congestion monitoring across a network of cameras, ensuring accurate and efficient data collection.</li>
+                    <li>Implemented predictive analytics to forecast traffic conditions and designed a traffic signal simulation module to optimize urban mobility solutions.</li>
+                </ul>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Real-time Ganga River water quality forecasting using AI-enabled DSS</div>
+                    <div class="date-location">
+                        <a href="https://github.com/AksharaSharma/ganga-water-quality" style="color: var(--accent-color);">GitHub</a>
+                    </div>
+                </div>
+                <ul>
+                    <li>Engineered an AI-enabled decision support system that increased real-time forecasting accuracy of Ganga River water quality to 97.86%, integrating over 5,000 data points from multiple sources.</li>
+                    <li>Developed a user-centric interface for visualizing metrics and generating actionable 3-5 day forecasts, securing a spot at the Smart India Hackathon 2024 Grand Finale.</li>
+                </ul>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Advanced Cataract and Conjunctivitis Detection</div>
+                    <div class="date-location">
+                        <a href="https://github.com/AksharaSharma/eye-disease-detection" style="color: var(--accent-color);">GitHub</a>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed an AI-driven diagnostic system achieving 98.65% accuracy for cataracts and 97.32% for conjunctivitis across 10,000+ clinical test cases.</li>
+                    <li>Integrated meta-learning techniques to reduce sample requirements by 75% while combining with MobileNetV3 for 40% faster processing, enabling instant results with detailed explanations.</li>
+                </ul>
             </div>
         </section>
 
-        <section class="skills-summary" data-aos="fade-up">
-            <h2 class="section-title">Skills Overview</h2>
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>Amity University, Noida, Uttar Pradesh, India</h3>
+                <div class="experience-header">
+                    <div>B. Tech Computer Science & Engineering (Specialisation: Data Science)</div>
+                    <div class="date-location">Sept 2022 – May 2026</div>
+                </div>
+                <p>Cumulative GPA: 8.91 / 10</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Interests</h2>
+            
             <div class="skills-container">
-                <div class="skill-category" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
+                <div class="skill-category">
+                    <div class="skill-title">Languages</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">MATLAB</span>
                     </div>
-                    <h3>Languages</h3>
-                    <ul class="skill-list">
-                        <li>Python (NumPy, Pandas, Scikit-learn)</li>
-                        <li>TensorFlow, OpenCV</li>
-                        <li>C/C++, Java</li>
-                        <li>R, MATLAB</li>
-                    </ul>
                 </div>
                 
-                <div class="skill-category" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="skill-icon">
-                        <i class="fas fa-laptop-code"></i>
+                <div class="skill-category">
+                    <div class="skill-title">Web Development</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
                     </div>
-                    <h3>Web Development</h3>
-                    <ul class="skill-list">
-                        <li>HTML5/CSS3</li>
-                        <li>JavaScript</li>
-                        <li>React</li>
-                        <li>MySQL</li>
-                    </ul>
                 </div>
                 
-                <div class="skill-category" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="skill-icon">
-                        <i class="fas fa-brain"></i>
+                <div class="skill-category">
+                    <div class="skill-title">Databases</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">MySQL</span>
                     </div>
-                    <h3>AI/ML</h3>
-                    <ul class="skill-list">
-                        <li>Machine Learning</li>
-                        <li>Deep Learning</li>
-                        <li>Generative AI</li>
-                        <li>Computer Vision</li>
-                    </ul>
                 </div>
                 
-                <div class="skill-category" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="skill-icon">
-                        <i class="fas fa-tools"></i>
+                <div class="skill-category">
+                    <div class="skill-title">Tools & Technologies</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Linux</span>
                     </div>
-                    <h3>Tools & Frameworks</h3>
-                    <ul class="skill-list">
-                        <li>Git, GitHub, Linux</li>
-                        <li>LangChain, AutoGen</li>
-                        <li>CrewAI, Haystack Agents</li>
-                        <li>Data Structures and Algorithms</li>
-                    </ul>
                 </div>
-            </div>
-            <div class="view-all" data-aos="fade-up">
-                <a href="pages/skills.html" class="btn">See Full Skill Set <i class="fas fa-arrow-right"></i></a>
+                
+                <div class="skill-category">
+                    <div class="skill-title">AI/ML</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Computer Vision</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-title">Frameworks</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">AutoGen</span>
+                        <span class="skill-tag">CrewAI</span>
+                        <span class="skill-tag">Haystack Agents</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-title">Python Libraries</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">OpenCV</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-title">Core Concepts</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Algorithms</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="publications" data-aos="fade-up">
-            <h2 class="section-title">Publications & Achievements</h2>
-            <div class="publication-item" data-aos="fade-right">
-                <div class="publication-icon">
-                    <i class="fas fa-file-alt"></i>
-                </div>
-                <div class="publication-content">
-                    <h3>AI-Driven Decision Support System for Real-Time Ganga River Water Quality Monitoring</h3>
-                    <p>International Conference on Ultra-Modern Telecommunications and Control Systems (ICUMT) 2024</p>
-                </div>
-            </div>
-            <div class="achievements">
-                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fas fa-award"></i>
-                    <span>Amity Merit Scholarship (2023-2024)</span>
-                </div>
-                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fas fa-trophy"></i>
-                    <span>Smart India Hackathon 2024 Finalist</span>
-                </div>
-                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fas fa-certificate"></i>
-                    <span>NPTEL Python for Data Science</span>
-                </div>
-                <div class="achievement-badge" data-aos="zoom-in" data-aos-delay="400">
-                    <i class="fas fa-certificate"></i>
-                    <span>NPTEL Software Conceptual Design</span>
-                </div>
-            </div>
+        <section id="publications">
+            <h2>Publications</h2>
+            <p>Presented "AI-Driven Decision Support System for Real-Time Ganga River Water Quality Monitoring and Forecasting Using IoT Sensors" at the International Conference on Ultra-Modern Telecommunications and Control Systems (ICUMT) 2024.</p>
         </section>
-    </main>
+
+        <section id="certifications">
+            <h2>Certifications & Achievements</h2>
+            <ul>
+                <li>Coursera- Machine Learning Specialization by Andrew Ng</li>
+                <li>Recipient of Amity Merit Scholarship (2023-2024)</li>
+                <li>Smart India Hackathon 2024 Finalist</li>
+                <li>NPTEL Python for Data Science</li>
+                <li>NPTEL Software Conceptual Design</li>
+            </ul>
+        </section>
+    </div>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <h3>Akshara Sharma</h3>
-                <p>Software Developer specializing in AI & Machine Learning</p>
-            </div>
-            <div class="footer-links">
-                <a href="pages/about.html">About</a>
-                <a href="pages/experience.html">Experience</a>
-                <a href="pages/skills.html">Skills</a>
-                <a href="pages/contact.html">Contact</a>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/AksharaSharma" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/AksharaSharma" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:akshara.sharma.contact@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+919717194402"><i class="fas fa-phone"></i></a>
-            </div>
-            <p class="copyright">&copy; 2025 Akshara Sharma. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Akshara Sharma. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- JavaScript Files -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
-            
-            // Mobile menu toggle
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-            
-            // Typing effect for hero text
-            const text = document.querySelector('.typing-effect');
-            const originalText = text.textContent;
-            text.textContent = '';
-            
-            let i = 0;
-            const typeWriter = () => {
-                if (i < originalText.length) {
-                    text.textContent += originalText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            };
-            
-            setTimeout(typeWriter, 500);
-            
-            // Particles animation for hero background
-            const particles = document.querySelector('.particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particle.style.animationDuration = Math.random() * 10 + 5 + 's';
-                particles.appendChild(particle);
-            }
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Active nav item based on scroll position
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-item');
-            
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('href').includes(current)) {
-                        item.classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
