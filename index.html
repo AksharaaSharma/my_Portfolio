@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akshara Sharma - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,6 +13,7 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
             transition: background-color 0.3s, color 0.3s;
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -49,7 +51,7 @@
         }
 
         .animated-background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -80,36 +82,40 @@
             }
         }
 
-        .header {
+        .section {
             position: relative;
             z-index: 2;
+            min-height: 100vh;
+            padding: 100px 20px 60px;
+            background: radial-gradient(circle at center, rgba(0,0,0,0), rgba(0,0,0,0.4));
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            background: radial-gradient(circle at center, rgba(0,0,0,0), rgba(0,0,0,0.4));
         }
 
         .nav-container {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            display: flex;
-            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         .nav-tabs {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 30px;
             padding: 15px 10px;
             background-color: var(--panel-bg);
             backdrop-filter: blur(8px);
             border-radius: 10px;
             border: 1px solid var(--panel-border);
             width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
         }
 
@@ -120,6 +126,7 @@
             font-weight: 500;
             transition: all 0.3s;
             color: var(--text-primary);
+            text-decoration: none;
         }
 
         .nav-tab:hover {
@@ -164,6 +171,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            width: 100%;
         }
 
         .photo-container {
@@ -217,8 +225,6 @@
             background-clip: text;
             color: transparent;
             text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
             display: inline-block;
         }
 
@@ -246,15 +252,19 @@
         }
 
         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .tab-content {
+        .section-content {
             background-color: var(--panel-bg);
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(8px);
@@ -262,16 +272,10 @@
             line-height: 1.7;
             font-size: 1rem;
             color: var(--text-primary);
-            display: none;
             font-family: 'Quicksand', sans-serif;
-        }
-
-        #about.tab-content {
-            font-size: 1rem;
-        }
-
-        .tab-content.active {
-            display: block;
+            max-width: 1200px;
+            width: 100%;
+            margin: 20px auto;
         }
 
         .highlight {
@@ -279,18 +283,18 @@
             font-weight: 600;
         }
 
-        .education-item, .experience-item, .skills-item {
+        .education-item, .skills-item {
             margin-bottom: 20px;
         }
 
-        .education-title, .experience-title, .skills-category {
+        .education-title, .skills-category {
             font-weight: 600;
             font-size: 1.2rem;
             margin-bottom: 8px;
             color: var(--highlight);
         }
 
-        .education-period, .experience-period {
+        .education-period {
             font-size: 0.9rem;
             opacity: 0.8;
             margin-bottom: 5px;
@@ -310,6 +314,178 @@
             font-size: 0.9rem;
         }
 
+        /* Timeline Styling */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--highlight);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+
+        .experience-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 0;
+        }
+
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--highlight);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .experience-content {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            position: relative;
+            border: 1px solid var(--panel-border);
+        }
+
+        .experience-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--highlight);
+        }
+
+        .experience-period {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        /* Contact Form */
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--panel-border);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--highlight);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-primary);
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            background: var(--accent-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
         @keyframes gradient {
             0% {
                 background-position: 0% 50%;
@@ -326,6 +502,25 @@
             .profile-container {
                 flex-direction: column;
                 text-align: center;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .experience-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
             }
         }
 
@@ -346,6 +541,9 @@
                 right: 0;
                 transform: none;
             }
+            .section {
+                padding-top: 150px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -356,8 +554,12 @@
                 width: 250px;
                 height: 250px;
             }
-            .tab-content {
+            .section-content {
                 font-size: 0.95rem;
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
@@ -368,17 +570,18 @@
             <!-- Particles will be added here with JavaScript -->
         </div>
         
-        <div class="header">
-            <div class="nav-container">
-                <div class="nav-tabs">
-                    <div class="nav-tab active" data-tab="about">About</div>
-                    <div class="nav-tab" data-tab="education">Education</div>
-                    <div class="nav-tab" data-tab="experience">Experience</div>
-                    <div class="nav-tab" data-tab="skills">Skills & Certifications</div>
-                    <button class="theme-toggle" id="themeToggle">🌙</button>
-                </div>
+        <div class="nav-container">
+            <div class="nav-tabs">
+                <a href="#about" class="nav-tab active">About</a>
+                <a href="#education" class="nav-tab">Education</a>
+                <a href="#experience" class="nav-tab">Experience</a>
+                <a href="#skills" class="nav-tab">Skills</a>
+                <a href="#contact" class="nav-tab">Contact</a>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
             </div>
-            
+        </div>
+        
+        <section id="about" class="section">
             <div class="profile-container">
                 <div class="photo-container">
                     <div class="photo-frame">
@@ -391,89 +594,160 @@
                     <h1 id="name">Akshara Sharma</h1>
                     <div class="subtitle">Exploring the frontiers of artificial intelligence</div>
                     
-                    <div id="about" class="tab-content active">
+                    <div class="section-content">
                         <p>As a <span class="highlight">passionate AI enthusiast</span>, I'm deeply fascinated by the potential of artificial intelligence to transform our world. My research interests lie at the intersection of <span class="highlight">Neural Networks</span>, <span class="highlight">Natural Language Processing</span>, and <span class="highlight">Agentic AI Systems</span>.</p>
                         <br>
                         <p>I'm particularly intrigued by how large language models can be augmented with tools and memory to create autonomous systems capable of complex reasoning and problem-solving. My work explores the theoretical foundations of AI while developing practical applications that can make a meaningful impact.</p>
                         <br>
                         <p>Currently, I'm focused on advancing <span class="highlight">multimodal AI systems</span> that can seamlessly integrate different forms of data and interact naturally with humans. I believe that responsible AI development holds the key to solving some of humanity's most pressing challenges.</p>
                     </div>
-                    
-                    <div id="education" class="tab-content">
-                        <div class="education-item">
-                            <div class="education-title">B.Tech in Computer Science & Engineering (Data Science)</div>
-                            <div class="education-period">2020 - 2024</div>
-                            <div class="education-institution">Amity University, Noida</div>
-                        </div>
-                    </div>
-                    
-                    <div id="experience" class="tab-content">
-                        <div class="experience-item">
+                </div>
+            </div>
+        </section>
+        
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="section-content">
+                <div class="education-item">
+                    <div class="education-title">B.Tech in Computer Science & Engineering (Data Science)</div>
+                    <div class="education-period">2020 - 2024</div>
+                    <div class="education-institution">Amity University, Noida</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience" class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="experience-item left">
+                        <div class="experience-content">
                             <div class="experience-title">AI Research Intern</div>
                             <div class="experience-period">Jan 2023 - Jun 2023</div>
                             <div class="experience-company">Thales</div>
                             <div class="experience-description">Developed AI systems for offensive content detection with 97%+ accuracy</div>
                         </div>
-                        
-                        <div class="experience-item">
+                    </div>
+                    
+                    <div class="experience-item right">
+                        <div class="experience-content">
                             <div class="experience-title">Machine Learning Intern</div>
                             <div class="experience-period">May 2022 - Aug 2022</div>
                             <div class="experience-company">DRDO</div>
                             <div class="experience-description">Worked on traffic forecasting systems using deep learning techniques</div>
                         </div>
                     </div>
-                    
-                    <div id="skills" class="tab-content">
-                        <div class="skills-item">
-                            <div class="skills-category">Programming Languages</div>
-                            <div class="skills-list">
-                                <div class="skill-tag">Python</div>
-                                <div class="skill-tag">JavaScript</div>
-                                <div class="skill-tag">R</div>
-                                <div class="skill-tag">SQL</div>
-                            </div>
-                        </div>
-                        
-                        <div class="skills-item">
-                            <div class="skills-category">AI & Machine Learning</div>
-                            <div class="skills-list">
-                                <div class="skill-tag">TensorFlow</div>
-                                <div class="skill-tag">PyTorch</div>
-                                <div class="skill-tag">Scikit-learn</div>
-                                <div class="skill-tag">NLP</div>
-                                <div class="skill-tag">Computer Vision</div>
-                                <div class="skill-tag">LLMs</div>
-                            </div>
-                        </div>
-                        
-                        <div class="skills-item">
-                            <div class="skills-category">Certifications</div>
-                            <div class="skills-list">
-                                <div class="skill-tag">Deep Learning Specialization (Coursera)</div>
-                                <div class="skill-tag">TensorFlow Developer Certificate</div>
-                                <div class="skill-tag">AWS Machine Learning Specialty</div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="section">
+            <h2 class="section-title">Skills & Certifications</h2>
+            <div class="section-content">
+                <div class="skills-item">
+                    <div class="skills-category">Programming Languages</div>
+                    <div class="skills-list">
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">JavaScript</div>
+                        <div class="skill-tag">R</div>
+                        <div class="skill-tag">SQL</div>
+                    </div>
+                </div>
+                
+                <div class="skills-item">
+                    <div class="skills-category">AI & Machine Learning</div>
+                    <div class="skills-list">
+                        <div class="skill-tag">TensorFlow</div>
+                        <div class="skill-tag">PyTorch</div>
+                        <div class="skill-tag">Scikit-learn</div>
+                        <div class="skill-tag">NLP</div>
+                        <div class="skill-tag">Computer Vision</div>
+                        <div class="skill-tag">LLMs</div>
+                    </div>
+                </div>
+                
+                <div class="skills-item">
+                    <div class="skills-category">Certifications</div>
+                    <div class="skills-list">
+                        <div class="skill-tag">Deep Learning Specialization (Coursera)</div>
+                        <div class="skill-tag">TensorFlow Developer Certificate</div>
+                        <div class="skill-tag">AWS Machine Learning Specialty</div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-content">
+                <div class="form-container">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/your-linkedin" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Tab Switching Logic
-        const tabLinks = document.querySelectorAll('.nav-tab');
-        const tabContents = document.querySelectorAll('.tab-content');
+        // Active Navigation Link
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-tab');
         
-        tabLinks.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                tabLinks.forEach(t => t.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Add active class to current tab
-                tab.classList.add('active');
-                document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
         
@@ -490,6 +764,14 @@
             }
             
             updateParticles();
+        });
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // You can add your form submission logic here
+            alert('Message sent successfully!');
+            this.reset();
         });
         
         // Create animated particles for the background
