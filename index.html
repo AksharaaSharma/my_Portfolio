@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akshara Sharma - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -95,6 +95,8 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto 40px;
+            display: flex;
+            justify-content: center;
         }
 
         .nav-tabs {
@@ -107,6 +109,8 @@
             backdrop-filter: blur(8px);
             border-radius: 10px;
             border: 1px solid var(--panel-border);
+            width: 100%;
+            position: relative;
         }
 
         .nav-tab {
@@ -129,20 +133,26 @@
 
         .theme-toggle {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
             color: var(--text-primary);
-            padding: 8px 15px;
-            border-radius: 20px;
             cursor: pointer;
-            backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
+            justify-content: center;
             z-index: 10;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .profile-container {
@@ -158,8 +168,8 @@
 
         .photo-container {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 350px;
+            height: 350px;
             flex-shrink: 0;
         }
 
@@ -190,6 +200,9 @@
             font-size: 14px;
         }
 
+        /* Replace this comment with your actual image in production:
+           <img src="path/to/your/image.jpg" alt="Akshara Sharma" class="photo"> */
+
         .content {
             flex: 1;
             min-width: 300px;
@@ -204,6 +217,23 @@
             background-clip: text;
             color: transparent;
             text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            display: inline-block;
+        }
+
+        .animated-letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: letterAnimation 0.5s ease forwards;
+        }
+
+        @keyframes letterAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .subtitle {
@@ -211,6 +241,15 @@
             font-weight: 300;
             color: var(--text-secondary);
             margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .tab-content {
@@ -220,10 +259,15 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(8px);
             border: 1px solid var(--panel-border);
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 1.7;
+            font-size: 1rem;
             color: var(--text-primary);
             display: none;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        #about.tab-content {
+            font-size: 1rem;
         }
 
         .tab-content.active {
@@ -296,6 +340,12 @@
                 font-size: 0.9rem;
                 padding: 8px 15px;
             }
+            .theme-toggle {
+                position: relative;
+                margin-top: 10px;
+                right: 0;
+                transform: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -303,11 +353,11 @@
                 font-size: 2.5rem;
             }
             .photo-container {
-                width: 200px;
-                height: 200px;
+                width: 250px;
+                height: 250px;
             }
             .tab-content {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -318,11 +368,6 @@
             <!-- Particles will be added here with JavaScript -->
         </div>
         
-        <button class="theme-toggle" id="themeToggle">
-            <span id="themeIcon">🌙</span>
-            <span id="themeText">Dark Mode</span>
-        </button>
-        
         <div class="header">
             <div class="nav-container">
                 <div class="nav-tabs">
@@ -330,6 +375,7 @@
                     <div class="nav-tab" data-tab="education">Education</div>
                     <div class="nav-tab" data-tab="experience">Experience</div>
                     <div class="nav-tab" data-tab="skills">Skills & Certifications</div>
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
                 </div>
             </div>
             
@@ -337,10 +383,12 @@
                 <div class="photo-container">
                     <div class="photo-frame">
                         <div class="photo">Your photo here</div>
+                        <!-- Replace the div above with:
+                        <img src="path/to/your/image.jpg" alt="Akshara Sharma" class="photo"> -->
                     </div>
                 </div>
                 <div class="content">
-                    <h1>Akshara Sharma</h1>
+                    <h1 id="name">Akshara Sharma</h1>
                     <div class="subtitle">Exploring the frontiers of artificial intelligence</div>
                     
                     <div id="about" class="tab-content active">
@@ -431,18 +479,14 @@
         
         // Theme Toggle Logic
         const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
         
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
             
             if (document.body.classList.contains('light-theme')) {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light Mode';
+                themeToggle.textContent = '☀️';
             } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark Mode';
+                themeToggle.textContent = '🌙';
             }
             
             updateParticles();
@@ -483,7 +527,24 @@
             });
         }
         
+        // Animate the letters in the name
+        function animateLetters() {
+            const nameElement = document.getElementById('name');
+            const text = nameElement.textContent;
+            nameElement.textContent = '';
+            
+            for (let i = 0; i < text.length; i++) {
+                const letter = document.createElement('span');
+                letter.className = 'animated-letter';
+                letter.textContent = text[i];
+                letter.style.animationDelay = `${0.1 * i}s`;
+                nameElement.appendChild(letter);
+            }
+        }
+        
+        // Initialize
         createParticles();
+        animateLetters();
     </script>
 </body>
 </html>
