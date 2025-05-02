@@ -9,54 +9,104 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="skills.html">Skills</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">Akshara Sharma</a>
+            </div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
-
+    
     <main>
+        <section class="about-hero">
+            <div class="container">
+                <h1>About Me</h1>
+                <div class="subtitle">Software Developer & AI Enthusiast</div>
+            </div>
+        </section>
+        
         <section class="about-section">
-            <h1>About Me</h1>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="../assets/images/profile.jpg" alt="Akshara Sharma">
-                </div>
-                <div class="about-text">
-                    <p>Hello! I'm Akshara Sharma, a Software Developer specializing in data science and AI/ML technologies. Currently pursuing my B.Tech in Computer Science & Engineering at Amity University with a focus on Data Science.</p>
-                    
-                    <p>With experience at organizations like Thales and Defence Research & Development Organisation, I've developed strong skills in AI-driven systems, deep learning techniques, and data analysis. My passion lies in creating innovative solutions that leverage cutting-edge technologies to solve real-world problems.</p>
-                    
-                    <h2>Education</h2>
-                    <div class="education-item">
-                        <h3>Amity University, Noida, Uttar Pradesh, India</h3>
-                        <p>B. Tech Computer Science & Engineering (Specialisation: Data Science)</p>
-                        <p>Sept 2022 – May 2026</p>
-                        <p>Cumulative GPA: 8.91 / 10</p>
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="../assets/images/profile.jpg" alt="Akshara Sharma">
+                        <div class="social-links-profile">
+                            <a href="https://linkedin.com/in/AksharaSharma" target="_blank" class="social-btn">LinkedIn</a>
+                            <a href="https://github.com/AksharaSharma" target="_blank" class="social-btn">GitHub</a>
+                        </div>
                     </div>
-
-                    <h2>Achievements</h2>
-                    <ul>
-                        <li>Smart India Hackathon 2024 Finalist</li>
-                        <li>Recipient of Amity Merit Scholarship (2023-2024)</li>
-                        <li>Published research on AI-Driven Decision Support Systems</li>
-                    </ul>
+                    
+                    <div class="about-content">
+                        <div class="about-intro">
+                            <h2>Hello, I'm Akshara</h2>
+                            <p class="lead-text">A Software Developer specializing in data science and AI/ML technologies, passionate about creating innovative solutions that leverage cutting-edge technologies.</p>
+                            
+                            <p>Currently pursuing my B.Tech in Computer Science & Engineering at Amity University with a focus on Data Science. With experience at organizations like Thales and Defence Research & Development Organisation, I've developed strong skills in AI-driven systems, deep learning techniques, and data analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="education-section">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>Amity University</h3>
+                        <span class="education-date">Sept 2022 – May 2026</span>
+                    </div>
+                    <div class="education-details">
+                        <p class="degree">B. Tech Computer Science & Engineering</p>
+                        <p class="specialization">Specialisation: Data Science</p>
+                        <p class="location">Noida, Uttar Pradesh, India</p>
+                        <p class="gpa"><strong>Cumulative GPA:</strong> 8.91 / 10</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="achievements-section">
+            <div class="container">
+                <h2>Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <h3>Smart India Hackathon</h3>
+                        <p>2024 Finalist</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🎓</div>
+                        <h3>Amity Merit Scholarship</h3>
+                        <p>Recipient (2023-2024)</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">📝</div>
+                        <h3>Research Publication</h3>
+                        <p>AI-Driven Decision Support Systems</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
+    
     <footer>
-        <p>&copy; 2025 Akshara Sharma. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://linkedin.com/in/AksharaSharma" target="_blank">LinkedIn</a>
-            <a href="https://github.com/AksharaSharma" target="_blank">GitHub</a>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Akshara Sharma. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/AksharaSharma" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/AksharaSharma" target="_blank">GitHub</a>
+                </div>
+            </div>
         </div>
     </footer>
-
     <script src="../assets/js/main.js"></script>
 </body>
 </html>
