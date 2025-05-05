@@ -948,10 +948,10 @@
 <section id="education">
   <style>
     .education-section {
-      padding: 9rem 5% 5rem 5%;
+      padding: 6rem 5% 4rem 5%;
       background: var(--hero-bg);
       border-radius: 2rem;
-      margin: 3rem 0;
+      margin: 2rem 0;
       box-shadow: var(--shadow-glow), 0 1.5px 8px 0 rgba(0,0,0,0.04);
       display: flex;
       flex-direction: column;
@@ -968,11 +968,10 @@
       background: var(--text-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
       letter-spacing: 2px;
       position: relative;
       z-index: 5;
-      margin-top: 1rem;
     }
     
     .timeline {
@@ -998,7 +997,7 @@
     
     .timeline-item {
       position: relative;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
       padding-left: 50px;
       min-height: 120px;
       display: flex;
@@ -1048,6 +1047,7 @@
       color: var(--secondary);
       margin-bottom: 0.8rem;
       letter-spacing: 0.5px;
+      padding-right: 6.5rem; /* Make space for the date */
     }
     
     .edu-degree {
@@ -1086,17 +1086,56 @@
       letter-spacing: 1px;
     }
     
-    /* Floating orbs with sparkle effect */
-    .orb {
+    /* Simplified animated background */
+    .bg-animation {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(5px);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
       z-index: 1;
-      opacity: 0.6;
-      pointer-events: none;
-      animation: float 15s infinite ease-in-out;
+      opacity: 0.4;
     }
     
+    /* Animated circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(8px);
+      opacity: 0.3;
+      pointer-events: none;
+      animation: float 20s infinite ease-in-out;
+    }
+    
+    .circle:nth-child(1) {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+      top: -60px;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .circle:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      bottom: -80px;
+      right: 15%;
+      animation-delay: -5s;
+    }
+    
+    .circle:nth-child(3) {
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+      top: 40%;
+      right: -50px;
+      animation-delay: -10s;
+    }
+    
+    /* Sparkles */
     .sparkle {
       position: absolute;
       width: 4px;
@@ -1109,95 +1148,18 @@
       animation: sparkle 4s infinite ease-out;
     }
     
-    .orb:nth-child(1) {
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
-      top: -60px;
-      left: 10%;
-      animation-delay: 0s;
-    }
-    
-    .orb:nth-child(2) {
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-      bottom: -80px;
-      right: 15%;
-      animation-delay: -3s;
-    }
-    
-    .orb:nth-child(3) {
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
-      top: 20%;
-      right: -50px;
-      animation-delay: -6s;
-    }
-    
-    .orb:nth-child(4) {
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
-      bottom: 15%;
-      left: -40px;
-      animation-delay: -9s;
-    }
-    
-    .orb:nth-child(5) {
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
-      top: 50%;
-      left: 30%;
-      animation-delay: -4s;
-    }
-    
-    /* Star decorations */
-    .star {
-      position: absolute;
-      opacity: 0.6;
-      z-index: 1;
-      animation: twinkle 3s infinite ease-in-out;
-    }
-    
-    .star:nth-child(6) {
-      width: 20px;
-      height: 20px;
-      top: 20%;
-      left: 15%;
-      animation-delay: -1.5s;
-    }
-    
-    .star:nth-child(7) {
-      width: 15px;
-      height: 15px;
-      top: 40%;
-      right: 25%;
-      animation-delay: -0.5s;
-    }
-    
-    .star:nth-child(8) {
-      width: 25px;
-      height: 25px;
-      bottom: 30%;
-      left: 40%;
-      animation-delay: -2.5s;
-    }
-    
     @keyframes float {
       0%, 100% {
         transform: translateY(0) translateX(0);
       }
       25% {
-        transform: translateY(-15px) translateX(10px);
+        transform: translateY(-20px) translateX(15px);
       }
       50% {
-        transform: translateY(10px) translateX(-10px);
+        transform: translateY(15px) translateX(-15px);
       }
       75% {
-        transform: translateY(-5px) translateX(-15px);
+        transform: translateY(-10px) translateX(-20px);
       }
     }
     
@@ -1216,41 +1178,6 @@
       }
     }
     
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 0.2;
-        transform: scale(0.8);
-      }
-      50% {
-        opacity: 0.8;
-        transform: scale(1.1);
-      }
-    }
-    
-    /* Add decorative elements */
-    .decoration {
-      position: absolute;
-      z-index: 2;
-      opacity: 0.15;
-      pointer-events: none;
-    }
-    
-    .decoration.hearts {
-      top: 10%;
-      right: 10%;
-      font-size: 32px;
-      color: var(--secondary);
-      animation: float 8s infinite ease-in-out;
-    }
-    
-    .decoration.stars {
-      bottom: 15%;
-      left: 8%;
-      font-size: 28px;
-      color: var(--accent);
-      animation: float 7s infinite ease-in-out reverse;
-    }
-    
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .education-section {
@@ -1259,14 +1186,16 @@
       
       .education-header {
         font-size: 2.2rem;
+        margin-bottom: 2.5rem;
       }
       
       .timeline-content {
-        padding: 1.5rem 1.5rem;
+        padding: 1.5rem;
       }
       
       .edu-title {
         font-size: 1.2rem;
+        padding-right: 0; /* Reset padding for mobile */
       }
       
       .edu-degree {
@@ -1280,29 +1209,21 @@
       .edu-date {
         position: static;
         display: block;
-        margin-top: 1rem;
-        text-align: right;
+        margin-bottom: 1rem;
+        text-align: left;
         font-size: 0.9rem;
+        color: var(--accent-light);
       }
     }
   </style>
   
   <div class="education-section">
-    <!-- Floating orbs -->
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-    
-    <!-- Star decorations -->
-    <div class="star">✦</div>
-    <div class="star">✧</div>
-    <div class="star">✦</div>
-    
-    <!-- Decorative elements -->
-    <div class="decoration hearts">♡</div>
-    <div class="decoration stars">✧</div>
+    <!-- Simplified animated background -->
+    <div class="bg-animation">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
     
     <!-- Content -->
     <h2 class="education-header">✨ Education ✨</h2>
@@ -1311,11 +1232,11 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
+          <div class="edu-date">Sept 2022 – May 2026</div>
           <div class="edu-title">Amity University, Noida, Uttar Pradesh, India</div>
           <div class="edu-degree">B.Tech Computer Science & Engineering (Specialization: Data Science)</div>
           <div class="edu-details">Cumulative GPA: <span class="edu-gpa">8.91 / 10</span></div>
           <div class="edu-details">Recipient of Amity Merit Scholarship (2023-2024)</div>
-          <div class="edu-date">Sept 2022 – May 2026</div>
         </div>
       </div>
       <!-- Add more timeline-item blocks here for more education entries if needed -->
@@ -1348,12 +1269,12 @@
       }
       
       // Create initial sparkles
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 10; i++) {
         setTimeout(createSparkle, Math.random() * 2000);
       }
       
       // Continue creating sparkles
-      setInterval(createSparkle, 500);
+      setInterval(createSparkle, 800);
     });
   </script>
 </section>
