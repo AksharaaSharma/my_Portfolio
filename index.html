@@ -573,12 +573,6 @@
       <h1>AI Developer & Innovator</h1>
       <p>Transforming complex data into intelligent, user-centric solutions that empower and inspire.</p>
       
-      <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-      </div>
     </div>
 
     <!-- Animated SVG Waves -->
@@ -679,142 +673,162 @@
   </script>
 
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    
-
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
 <section id="about" style="margin-top: 80px;">
   <style>
     .about-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-      padding: 4rem 5% 3rem 5%;
-      background: linear-gradient(120deg, #fff7f0 0%, #ffe5d0 100%);
+      padding: 5rem 8%;
+      background: var(--hero-bg);
       border-radius: 2rem;
-      box-shadow: 0 8px 32px 0 rgba(240, 109, 6, 0.08), 0 1.5px 8px 0 rgba(0,0,0,0.04);
-      transition: background 0.3s;
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
-    body.light-mode .about-section {
-      background: linear-gradient(120deg, #232526 0%, #414345 100%);
-      color: #fff;
+    
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--border-color) 0%, transparent 50%);
+      opacity: 0.4;
+      z-index: -1;
+      animation: pulse 15s infinite ease-in-out;
     }
-    .about-img-wrapper {
-      flex: 1 1 320px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 240px;
+    
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.05); opacity: 0.4; }
+      100% { transform: scale(1); opacity: 0.3; }
     }
-    .about-img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 6px 32px 0 rgba(240, 109, 6, 0.15);
-      border: 5px solid #f06d06;
-      background: #fff;
-      transition: border 0.3s;
+    
+    .about-content {
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
     }
-    .about-info {
-      flex: 2 1 400px;
-      min-width: 280px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+    
+    .about-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
     }
-    .about-info h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #f06d06, #ff8a00 70%);
+    
+    .about-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      background: var(--text-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
+      display: inline-block;
     }
-    .about-info .about-title {
+    
+    .about-name {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .about-name::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--button-gradient);
+      border-radius: 2px;
+    }
+    
+    .about-description {
       font-size: 1.2rem;
-      font-weight: 600;
-      color: #f06d06;
-      letter-spacing: 1px;
-      margin-bottom: 0.7rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--border-color);
+      position: relative;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
     }
-    .about-info p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #333;
+    
+    .about-description b {
+      color: var(--secondary);
+      font-weight: 700;
     }
-    body.light-mode .about-info p {
-      color: #f5f5f5;
-    }
-    .about-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+    
+    .about-description p + p {
       margin-top: 1.2rem;
     }
-    .about-highlight {
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 1px 8px 0 rgba(240, 109, 6, 0.08);
-      padding: 1rem 1.5rem;
-      min-width: 170px;
-      text-align: center;
-      transition: background 0.3s;
+
+    .about-description::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      height: 3px;
+      background: var(--button-gradient);
+      border-radius: 3px 3px 0 0;
     }
-    body.light-mode .about-highlight {
-      background: #232526;
-      color: #fff;
-    }
-    .about-highlight span {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #f06d06;
-      margin-bottom: 0.2rem;
-    }
+    
     @media (max-width: 900px) {
       .about-section {
-        flex-direction: column;
-        padding: 2.5rem 5% 2.5rem 5%;
+        padding: 3rem 5%;
       }
-      .about-info h2 {
-        font-size: 2rem;
+      
+      .about-name {
+        font-size: 2.5rem;
+      }
+      
+      .about-description {
+        padding: 1.8rem;
+        font-size: 1.1rem;
       }
     }
   </style>
+  
   <div class="about-section">
-    <div class="about-img-wrapper">
-      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Akshara Sharma profile photo" class="about-img" />
-    </div>
-    <div class="about-info">
-      <span class="about-title">About Me</span>
-      <h2>Akshara Sharma</h2>
-      <p>
-        I’m a passionate <b>Software Developer</b> and <b>B.Tech CSE (Data Science)</b> student at Amity University, Noida. With a love for building AI-driven solutions, I specialize in <b>Machine Learning, Deep Learning, and Computer Vision</b>.<br><br>
-        My journey includes impactful internships at <b>Thales</b> and <b>DRDO</b>, where I engineered high-accuracy AI systems for real-world challenges-from offensive content detection to energy-efficient traffic forecasting for critical networks.<br><br>
-        I thrive on transforming complex data into intelligent, user-centric products. My projects have been recognized at national platforms like the <b>Smart India Hackathon</b> and published at international conferences.
-      </p>
-      <div class="about-highlights">
-        <div class="about-highlight">
-          <span>8.91</span>
-          GPA (Amity University)
-        </div>
-        <div class="about-highlight">
-          <span>98.35%</span>
-          AI System Accuracy (DRDO)
-        </div>
-        <div class="about-highlight">
-          <span>3+</span>
-          AI Research Projects
-        </div>
-        <div class="about-highlight">
-          <span>2024</span>
-          SIH Grand Finalist
-        </div>
+    <div class="about-content">
+      <div class="about-header">
+        <span class="about-title">About Me</span>
+        <h2 class="about-name">Akshara Sharma</h2>
+      </div>
+      
+      <div class="about-description">
+        <p>
+          I'm a passionate <b>Software Developer</b> and <b>B.Tech CSE (Data Science)</b> student at Amity University, Noida. With a love for building AI-driven solutions, I specialize in <b>Machine Learning, Deep Learning, and Computer Vision</b>.
+        </p>
+        <p>
+          My journey includes impactful internships at <b>Thales</b> and <b>DRDO</b>, where I engineered high-accuracy AI systems for real-world challenges-from offensive content detection to energy-efficient traffic forecasting for critical networks.
+        </p>
+        <p>
+          I thrive on transforming complex data into intelligent, user-centric products. My projects have been recognized at national platforms like the <b>Smart India Hackathon</b> and published at international conferences.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+  <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+
+  
 <section id="education">
   <style>
     .education-section {
@@ -1004,6 +1018,12 @@
     </div>
   </div>
 </section>
+  
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+
+
+  
 <section id="skills">
   <style>
     .skills-section {
