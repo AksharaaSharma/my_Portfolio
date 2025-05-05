@@ -674,7 +674,8 @@
 
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
-<section id="about" style="margin-top: 80px;">
+
+  <section id="about" style="margin-top: 80px;">
   <style>
     .about-section {
       padding: 5rem 8%;
@@ -941,45 +942,47 @@
   </div>
 </section>
 
-  <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
-
-  
+ 
 <section id="education">
   <style>
     .education-section {
-      padding: 5rem 5% 4rem 5%;
-      background: linear-gradient(120deg, #fdf6e3 0%, #ffe5d0 100%);
+      padding: 6rem 5% 5rem 5%;
+      background: var(--hero-bg);
       border-radius: 2rem;
-      margin: 3rem 0 3rem 0;
-      box-shadow: 0 8px 32px 0 rgba(240, 109, 6, 0.10), 0 1.5px 8px 0 rgba(0,0,0,0.04);
+      margin: 3rem 0;
+      box-shadow: var(--shadow-glow), 0 1.5px 8px 0 rgba(0,0,0,0.04);
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
       overflow: hidden;
+      border: 1px solid var(--border-color);
     }
-    body.light-mode .education-section {
-      background: linear-gradient(120deg, #232526 0%, #414345 100%);
-      color: #fff;
-    }
+    
     .education-header {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 700;
       text-align: center;
-      background: linear-gradient(90deg, #f06d06, #ff8a00 70%);
+      background: var(--text-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 2.5rem;
-      letter-spacing: 1px;
+      margin-bottom: 3rem;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 5;
     }
+    
     .timeline {
       position: relative;
       max-width: 800px;
       width: 100%;
       margin: 0 auto;
       padding-left: 30px;
+      z-index: 5;
     }
+    
     .timeline:before {
       content: '';
       position: absolute;
@@ -987,9 +990,11 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background: linear-gradient(180deg, #f06d06 0%, #ff8a00 100%);
-      border-radius: 2px;
+      background: var(--button-gradient);
+      border-radius: 12px;
+      box-shadow: 0 0 15px var(--shadow-color);
     }
+    
     .timeline-item {
       position: relative;
       margin-bottom: 3.5rem;
@@ -999,126 +1004,308 @@
       flex-direction: column;
       justify-content: flex-start;
     }
+    
     .timeline-dot {
       position: absolute;
       left: 8px;
       top: 10px;
-      width: 22px;
-      height: 22px;
-      background: #fff;
-      border: 4px solid #f06d06;
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      border: 3px solid var(--secondary);
       border-radius: 50%;
-      z-index: 2;
-      box-shadow: 0 4px 12px 0 rgba(240, 109, 6, 0.08);
-      transition: border 0.3s;
+      z-index: 6;
+      box-shadow: 0 0 15px var(--shadow-color);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    body.light-mode .timeline-dot {
-      background: #232526;
-      border: 4px solid #ff8a00;
+    
+    .timeline-item:hover .timeline-dot {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px var(--secondary);
     }
+    
     .timeline-content {
-      background: #fff;
-      border-radius: 1.2rem;
-      box-shadow: 0 2px 16px 0 rgba(240, 109, 6, 0.06);
-      padding: 1.5rem 2rem;
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border-radius: 1.5rem;
+      box-shadow: var(--box-shadow);
+      padding: 1.8rem 2.2rem;
       margin-left: 0.5rem;
       position: relative;
-      transition: background 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--border-color);
     }
-    body.light-mode .timeline-content {
-      background: #232526;
-      color: #fff;
+    
+    .timeline-item:hover .timeline-content {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(255, 126, 182, 0.25);
     }
+    
     .edu-title {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: #f06d06;
-      margin-bottom: 0.7rem;
+      color: var(--secondary);
+      margin-bottom: 0.8rem;
       letter-spacing: 0.5px;
     }
+    
     .edu-degree {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      color: #222;
-      margin-bottom: 0.4rem;
+      color: var(--text-light);
+      margin-bottom: 0.6rem;
     }
-    body.light-mode .edu-degree {
-      color: #fff;
-    }
+    
     .edu-details {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
     }
-    body.light-mode .edu-details {
-      color: #e5e5e5;
-    }
+    
     .edu-gpa {
       display: inline-block;
-      background: linear-gradient(90deg, #f06d06, #ff8a00 70%);
-      color: #fff;
+      background: var(--button-gradient);
+      color: #ffffff;
       font-weight: 600;
-      padding: 0.2rem 0.8rem;
-      border-radius: 1rem;
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
       font-size: 1rem;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
       letter-spacing: 1px;
-      box-shadow: 0 2px 8px 0 rgba(240, 109, 6, 0.08);
+      box-shadow: 0 5px 15px var(--shadow-color);
     }
+    
     .edu-date {
       position: absolute;
-      top: 1.5rem;
-      right: 2rem;
+      top: 1.8rem;
+      right: 2.2rem;
       font-size: 1rem;
-      color: #f06d06;
-      font-weight: 500;
+      color: var(--accent-light);
+      font-weight: 600;
       letter-spacing: 1px;
-      opacity: 0.85;
     }
-    body.light-mode .edu-date {
-      color: #ff8a00;
+    
+    /* Floating orbs with sparkle effect */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(5px);
+      z-index: 1;
+      opacity: 0.6;
+      pointer-events: none;
+      animation: float 15s infinite ease-in-out;
     }
-    @media (max-width: 700px) {
+    
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 0 10px 2px white;
+      opacity: 0;
+      pointer-events: none;
+      animation: sparkle 4s infinite ease-out;
+    }
+    
+    .orb:nth-child(1) {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+      top: -60px;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .orb:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      bottom: -80px;
+      right: 15%;
+      animation-delay: -3s;
+    }
+    
+    .orb:nth-child(3) {
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+      top: 20%;
+      right: -50px;
+      animation-delay: -6s;
+    }
+    
+    .orb:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+      bottom: 15%;
+      left: -40px;
+      animation-delay: -9s;
+    }
+    
+    .orb:nth-child(5) {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+      top: 50%;
+      left: 30%;
+      animation-delay: -4s;
+    }
+    
+    /* Star decorations */
+    .star {
+      position: absolute;
+      opacity: 0.6;
+      z-index: 1;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+    
+    .star:nth-child(6) {
+      width: 20px;
+      height: 20px;
+      top: 20%;
+      left: 15%;
+      animation-delay: -1.5s;
+    }
+    
+    .star:nth-child(7) {
+      width: 15px;
+      height: 15px;
+      top: 40%;
+      right: 25%;
+      animation-delay: -0.5s;
+    }
+    
+    .star:nth-child(8) {
+      width: 25px;
+      height: 25px;
+      bottom: 30%;
+      left: 40%;
+      animation-delay: -2.5s;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+      25% {
+        transform: translateY(-15px) translateX(10px);
+      }
+      50% {
+        transform: translateY(10px) translateX(-10px);
+      }
+      75% {
+        transform: translateY(-5px) translateX(-15px);
+      }
+    }
+    
+    @keyframes sparkle {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+    
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+      }
+    }
+    
+    /* Add decorative elements */
+    .decoration {
+      position: absolute;
+      z-index: 2;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    
+    .decoration.hearts {
+      top: 10%;
+      right: 10%;
+      font-size: 32px;
+      color: var(--secondary);
+      animation: float 8s infinite ease-in-out;
+    }
+    
+    .decoration.stars {
+      bottom: 15%;
+      left: 8%;
+      font-size: 28px;
+      color: var(--accent);
+      animation: float 7s infinite ease-in-out reverse;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
       .education-section {
-        padding: 2.5rem 2% 2.5rem 2%;
+        padding: 4rem 3% 3rem 3%;
       }
+      
+      .education-header {
+        font-size: 2.2rem;
+      }
+      
       .timeline-content {
-        padding: 1.1rem 1rem;
+        padding: 1.5rem 1.5rem;
       }
+      
+      .edu-title {
+        font-size: 1.2rem;
+      }
+      
+      .edu-degree {
+        font-size: 1.1rem;
+      }
+      
+      .edu-details {
+        font-size: 1rem;
+      }
+      
       .edu-date {
         position: static;
         display: block;
-        margin-top: 0.7rem;
+        margin-top: 1rem;
         text-align: right;
+        font-size: 0.9rem;
       }
     }
-    /* Decorative floating shapes for extra beauty */
-    .edu-float {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.10;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .edu-float.orange {
-      width: 180px;
-      height: 180px;
-      background: linear-gradient(135deg, #f06d06, #ff8a00);
-      top: -60px;
-      left: -60px;
-    }
-    .edu-float.yellow {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, #ffe5d0, #fdf6e3);
-      bottom: -50px;
-      right: -40px;
-    }
   </style>
+  
   <div class="education-section">
-    <div class="edu-float orange"></div>
-    <div class="edu-float yellow"></div>
-    <div class="education-header">Education</div>
+    <!-- Floating orbs -->
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    
+    <!-- Star decorations -->
+    <div class="star">✦</div>
+    <div class="star">✧</div>
+    <div class="star">✦</div>
+    
+    <!-- Decorative elements -->
+    <div class="decoration hearts">♡</div>
+    <div class="decoration stars">✧</div>
+    
+    <!-- Content -->
+    <h2 class="education-header">✨ Education ✨</h2>
+    
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -1133,6 +1320,41 @@
       <!-- Add more timeline-item blocks here for more education entries if needed -->
     </div>
   </div>
+  
+  <!-- Script for adding dynamic sparkles -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const educationSection = document.querySelector('.education-section');
+      
+      // Create sparkles
+      function createSparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+        
+        // Random position
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        
+        // Random delay
+        sparkle.style.animationDelay = Math.random() * 4 + 's';
+        
+        educationSection.appendChild(sparkle);
+        
+        // Remove after animation
+        setTimeout(() => {
+          sparkle.remove();
+        }, 4000);
+      }
+      
+      // Create initial sparkles
+      for (let i = 0; i < 15; i++) {
+        setTimeout(createSparkle, Math.random() * 2000);
+      }
+      
+      // Continue creating sparkles
+      setInterval(createSparkle, 500);
+    });
+  </script>
 </section>
   
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -1378,6 +1600,10 @@
     window.addEventListener('DOMContentLoaded', animateSkillBars);
   </script>
 </section>
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+
 <section id="experience">
   <style>
     .experience-section {
