@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshara Sharma | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- BEGIN: Global Color Variables and Fonts -->
+  <style>
+    :root {
+      --primary: #E6E6FA;
+      --primary-alt: #C5C5FF;
+      --secondary: #6B8CAE;
+      --secondary-alt: #4682B4;
+      --accent: #FF6B6B;
+      --accent-alt: #FFB5B5;
+      --neutral: #FEFEFE;
+      --slate: #708090;
+      --glass-bg: rgba(230,230,250,0.7);
+      --glass-blur: blur(18px);
+      --shadow: 0 8px 32px 0 rgba(107,140,174,0.12);
+      --gradient-main: linear-gradient(120deg, #E6E6FA 0%, #C5C5FF 100%);
+      --gradient-accent: linear-gradient(90deg, #FF6B6B 0%, #FFB5B5 100%);
+      --gradient-secondary: linear-gradient(90deg, #6B8CAE 0%, #4682B4 100%);
+      --gradient-hero: linear-gradient(135deg, #E6E6FA 60%, #C5C5FF 100%);
+      --divider: #C5C5FF;
+      --divider-accent: #FFB5B5;
+      --divider-secondary: #6B8CAE;
+      --text-main: #4682B4;
+      --text-accent: #FF6B6B;
+      --text-neutral: #708090;
+      --text-white: #FEFEFE;
+      --card-bg: rgba(255,255,255,0.85);
+      --card-bg-dark: rgba(230,230,250,0.95);
+      --nav-blur: rgba(230,230,250,0.85);
+      --nav-shadow: 0 4px 30px rgba(107,140,174,0.10);
+      --border: 1.5px solid #C5C5FF;
+    }
+    body {
+      background: var(--gradient-main);
+      color: var(--text-main);
+      font-family: 'Poppins', 'Playfair Display', cursive, sans-serif;
+      transition: background 0.7s cubic-bezier(.77,0,.18,1);
+    }
+  </style>
+  <!-- END: Global Color Variables and Fonts -->
+
+  <!-- BEGIN: Animated Particle Background (Hero) -->
+  <div id="particle-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;"></div>
+  <script>
+  // Particle background
+  function createParticles() {
+    const container = document.getElementById('particle-bg');
+    if (!container) return;
+    container.innerHTML = '';
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.style.position = 'absolute';
+      p.style.width = p.style.height = `${Math.random()*8+4}px`;
+      p.style.borderRadius = '50%';
+      p.style.background = `linear-gradient(135deg, #C5C5FF, #FFB5B5)`;
+      p.style.opacity = Math.random()*0.4+0.2;
+      p.style.left = `${Math.random()*100}%`;
+      p.style.top = `${Math.random()*100}%`;
+      p.style.filter = 'blur(1.5px)';
+      p.style.animation = `particleFloat${i%3} ${Math.random()*12+10}s ease-in-out infinite`;
+      container.appendChild(p);
+    }
+  }
+  for(let i=0;i<3;i++){
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes particleFloat${i}{0%{transform:translateY(0) scale(1);}50%{transform:translateY(${i%2===0?'-':'+'}${Math.random()*40+20}px) scale(${1+Math.random()*0.2});}100%{transform:translateY(0) scale(1);}}`;
+    document.head.appendChild(style);
+  }
+  window.addEventListener('DOMContentLoaded', createParticles);
+  window.addEventListener('resize', createParticles);
+  </script>
+  <!-- END: Animated Particle Background (Hero) -->
+
+  <!-- BEGIN: SVG Section Dividers -->
+  <style>
+    .section-divider {
+      display: block;
+      width: 100vw;
+      height: 80px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+  <!-- Use <svg class="section-divider">...</svg> between sections -->
+
+  <!-- BEGIN: Glassmorphic Card for Hero -->
+  <style>
+    .glass-card {
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      border-radius: 2.5rem;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: var(--border);
+      padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      animation: floatHeroCard 4s ease-in-out infinite alternate;
+    }
+    @keyframes floatHeroCard {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-12px); }
+    }
+  </style>
+  <!-- END: Glassmorphic Card for Hero -->
+
+  <!-- BEGIN: Typewriter Effect for Headline -->
+  <style>
+    .typewriter {
+      display: inline-block;
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 2.8s steps(30, end), blink-caret 0.7s step-end infinite alternate;
+      font-family: 'Playfair Display', cursive, serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--accent); }
+    }
+  </style>
+  <!-- END: Typewriter Effect for Headline -->
+
+  <!-- BEGIN: Enhanced Navigation Bar -->
+  <style>
+    .nav-bar {
+      background: var(--nav-blur);
+      box-shadow: var(--nav-shadow);
+      border-bottom: var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: background 0.5s, box-shadow 0.5s;
+    }
+    .nav-links a {
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 1.08rem;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.25s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 2.5px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+      transition: width 0.4s cubic-bezier(.77,0,.18,1);
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    /* Mobile menu */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .nav-bar .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: var(--text-main);
+        cursor: pointer;
+        margin-left: 1.5rem;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 60px; left: 0; width: 100vw;
+        background: var(--glass-bg);
+        box-shadow: var(--nav-shadow);
+        z-index: 200;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 2rem;
+        border-bottom: var(--border);
+        backdrop-filter: var(--glass-blur);
+      }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a {
+        color: var(--text-main);
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 0.7rem 0;
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+  </style>
+  <!-- END: Enhanced Navigation Bar -->
+
+  <!-- BEGIN: Section Header Animation -->
+  <style>
+    .section-header {
+      font-size: 2.7rem;
+      font-weight: 800;
+      text-align: center;
+      background: var(--gradient-secondary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1.5px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: sectionHeaderFadeIn 1.2s 0.2s cubic-bezier(.77,0,.18,1) forwards;
+    }
+    @keyframes sectionHeaderFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <!-- END: Section Header Animation -->
+
+  <!-- BEGIN: 3D/Gradient Card Hover Effects -->
+  <style>
+    .project-card, .skill-card, .exp-content, .cert-card {
+      box-shadow: 0 2px 16px 0 rgba(107,140,174,0.10), 0 1.5px 8px 0 rgba(107,140,174,0.04);
+      background: var(--card-bg-dark);
+      border-radius: 1.5rem;
+      transition: transform 0.3s cubic-bezier(.77,0,.18,1), box-shadow 0.3s, background 0.3s;
+      border: var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover, .skill-card:hover, .exp-content:hover, .cert-card:hover {
+      transform: translateY(-8px) scale(1.03) rotateZ(-0.5deg);
+      box-shadow: 0 12px 40px 0 rgba(255,107,107,0.18), 0 2px 12px 0 rgba(107,140,174,0.10);
+      background: var(--card-bg);
+      border-color: var(--accent-alt);
+    }
+    .project-card::before, .skill-card::before, .exp-content::before, .cert-card::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 3px 3px 0 0;
+      opacity: 0.7;
+    }
+    .project-card::after, .skill-card::after, .exp-content::after, .cert-card::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: -2px; right: -2px; height: 3px;
+      background: var(--gradient-secondary);
+      border-radius: 0 0 3px 3px;
+      opacity: 0.7;
+    }
+  </style>
+  <!-- END: 3D/Gradient Card Hover Effects -->
+
+  <!-- BEGIN: Floating Action Button (Scroll to Top) -->
+  <style>
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 54px;
+      height: 54px;
+      background: var(--gradient-accent);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(255,107,107,0.18);
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 300;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+  <button id="scrollTopBtn" title="Back to top">↑</button>
+  <script>
+  window.addEventListener('scroll', function() {
+    const btn = document.getElementById('scrollTopBtn');
+    if(window.scrollY > 300) btn.classList.add('show');
+    else btn.classList.remove('show');
+  });
+  document.getElementById('scrollTopBtn').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+  </script>
+  <!-- END: Floating Action Button (Scroll to Top) -->
+
+  <!-- BEGIN: Mobile Menu Script -->
+  <script>
+  window.addEventListener('DOMContentLoaded', function() {
+    const nav = document.querySelector('.nav-bar');
+    if (!document.querySelector('.hamburger')) {
+      const btn = document.createElement('button');
+      btn.className = 'hamburger';
+      btn.innerHTML = '&#9776;';
+      nav.appendChild(btn);
+      btn.addEventListener('click', function() {
+        let menu = document.querySelector('.mobile-menu');
+        if (!menu) {
+          menu = document.createElement('div');
+          menu.className = 'mobile-menu';
+          menu.innerHTML = document.querySelector('.nav-links').innerHTML;
+          document.body.appendChild(menu);
+        }
+        menu.classList.toggle('open');
+      });
+    }
+  });
+  </script>
+  <!-- END: Mobile Menu Script -->
+
+  <!-- BEGIN: Typewriter Headline Script -->
+  <script>
+  window.addEventListener('DOMContentLoaded', function() {
+    const el = document.querySelector('.typewriter');
+    if(el) {
+      const text = el.getAttribute('data-text');
+      el.textContent = '';
+      let i = 0;
+      function type() {
+        if(i < text.length) {
+          el.textContent += text[i++];
+          setTimeout(type, 60);
+        }
+      }
+      type();
+    }
+  });
+  </script>
+  <!-- END: Typewriter Headline Script -->
+
+  <!-- BEGIN: SVG Section Dividers Markup (insert between each section) -->
+  <!-- Example: -->
+  <!-- <svg class="section-divider" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 Q360,80 720,40 T1440,40 V80 H0 Z" fill="#C5C5FF"/><path d="M0,60 Q360,20 720,60 T1440,60 V80 H0 Z" fill="#FFB5B5" opacity="0.3"/></svg> -->
+  <!-- END: SVG Section Dividers Markup -->
+
+  <!-- BEGIN: Hero Section Rewrite -->
+  <div class="header-hero" style="position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--gradient-hero);">
+    <div style="height:12vh;"></div>
+    <div class="glass-card">
+      <div class="hero-avatar-container" style="margin-bottom:2.2rem;">
+        <img src="images/profile_pic.png" alt="Akshara Sharma" class="hero-avatar" style="width:160px;height:160px;border-radius:50%;border:4px solid var(--accent-alt);box-shadow:0 4px 24px var(--accent-alt);object-fit:cover;animation:floatHeroCard 4s ease-in-out infinite alternate;" />
+      </div>
+      <h1 class="typewriter" data-text="AI Developer & Innovator"></h1>
+      <p style="font-size:1.3rem;color:var(--slate);margin:1.2rem 0 2.2rem 0;max-width:500px;">Crafting intelligent, beautiful solutions at the intersection of <span style="color:var(--accent);font-weight:600;">AI</span> and <span style="color:var(--secondary);font-weight:600;">Design</span>.</p>
+      <div class="cta-buttons" style="display:flex;gap:1.2rem;justify-content:center;">
+        <a class="cta-button cta-primary" href="#projects" style="background:var(--gradient-accent);color:#fff;">See Projects</a>
+        <a class="cta-button cta-secondary" href="#contact" style="border:var(--border);color:var(--accent);background:transparent;">Contact Me</a>
+      </div>
+    </div>
+    <div style="height:8vh;"></div>
+  </div>
+  <!-- END: Hero Section Rewrite -->
+
+  <!-- BEGIN: Insert SVG Divider after Hero -->
+  <svg class="section-divider" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 Q360,80 720,40 T1440,40 V80 H0 Z" fill="#C5C5FF"/><path d="M0,60 Q360,20 720,60 T1440,60 V80 H0 Z" fill="#FFB5B5" opacity="0.3"/></svg>
+  <!-- END: Insert SVG Divider after Hero -->
+
+  <div id="about-section"></div>
+  <div id="education-section"></div>
+  <div id="skills-section"></div>
+  <div id="experience-section"></div>
+  <div id="projects-section"></div>
+  <div id="certifications-section"></div>
+  <div id="contact-section"></div>
+
+  <script>
+  const sections = [
+    { id: "about-section", file: "about.html" },
+    { id: "education-section", file: "education.html" },
+    { id: "skills-section", file: "skills.html" },
+    { id: "experience-section", file: "experience.html" },
+    { id: "projects-section", file: "projects.html" },
+    { id: "certifications-section", file: "certifications.html" },
+    { id: "contact-section", file: "contact.html" }
+  ];
+  sections.forEach(section => {
+    fetch(section.file)
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById(section.id).innerHTML = html;
+      });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<div class="section-header">Projects</div>
+<section id="projects">
+  <style>
+    .projects-section {
+      padding: 5rem 5% 4rem 5%;
+      background: linear-gradient(120deg, #fff7f0 0%, #e0ecff 100%);
+      border-radius: 2rem;
+      margin: 3rem 0 3rem 0;
+      box-shadow: 0 8px 32px 0 rgba(60, 120, 240, 0.10), 0 1.5px 8px 0 rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    body.light-mode .projects-section {
+      background: linear-gradient(120deg, #232526 0%, #414345 100%);
+      color: #fff;
+    }
+    .projects-header {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(90deg, #f06d06, #3a8bfd 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      width: 100%;
+      max-width: 1100px;
+      z-index: 1;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px 0 rgba(60, 120, 240, 0.06);
+      padding: 1.5rem 1.2rem 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      transition: background 0.3s;
+      min-height: 420px;
+      overflow: hidden;
+    }
+    body.light-mode .project-card {
+      background: #232526;
+      color: #fff;
+    }
+    .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 1.2rem;
+      margin-bottom: 1.2rem;
+      background: #eee;
+      border: 2px solid #f06d06;
+      box-shadow: 0 2px 8px 0 rgba(240, 109, 6, 0.07);
+    }
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #f06d06;
+      letter-spacing: 0.5px;
+    }
+    body.light-mode .project-title {
+      color: #3a8bfd;
+    }
+    .project-desc {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      min-height: 48px;
+    }
+    body.light-mode .project-desc {
+      color: #e5e5e5;
+    }
+    .project-stack {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .stack-badge {
+      background: linear-gradient(90deg, #f06d06, #3a8bfd 80%);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 500;
+      border-radius: 1rem;
+      padding: 0.25rem 0.85rem;
+      margin-right: 0.2rem;
+      margin-bottom: 0.2rem;
+      box-shadow: 0 1px 4px 0 rgba(60, 120, 240, 0.08);
+      letter-spacing: 0.5px;
+    }
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 1rem;
+    }
+    .project-btn {
+      background: linear-gradient(90deg, #f06d06 60%, #3a8bfd 100%);
+      color: #fff;
+      border: none;
+      border-radius: 1.2rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 1px 8px 0 rgba(60, 120, 240, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .project-btn:hover {
+      background: linear-gradient(90deg, #3a8bfd 60%, #f06d06 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .proj-float-orange {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.10;
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #f06d06, #3a8bfd);
+      top: -60px;
+      left: -60px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .proj-float-blue {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.09;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #e0ecff, #fff7f0);
+      bottom: -50px;
+      right: -40px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @media (max-width: 700px) {
+      .projects-section {
+        padding: 2.5rem 2% 2.5rem 2%;
+      }
+      .projects-grid {
+        gap: 1.3rem;
+      }
+      .project-card {
+        padding: 1.2rem 0.7rem 1rem 0.7rem;
+        min-height: 340px;
+      }
+      .project-image {
+        height: 120px;
+      }
+    }
+  </style>
+  <div class="projects-section">
+    <div class="proj-float-orange"></div>
+    <div class="proj-float-blue"></div>
+    <div class="projects-header">Projects</div>
+    <div class="projects-grid">
+      <!-- Project 1: Art Docent -->
+      <div class="project-card">
+        <img class="project-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Art Docent project image">
+        <div class="project-title">Art Docent</div>
+        <div class="project-desc">
+          AI-powered art explainer: generates detailed explanations, visualizations, webscrapes for links, and creates 30-sec narrated video clips for famous paintings.
+        </div>
+        <div class="project-stack">
+          <span class="stack-badge">Python</span>
+          <span class="stack-badge">OpenCV</span>
+          <span class="stack-badge">BeautifulSoup</span>
+          <span class="stack-badge">Flask</span>
+          <span class="stack-badge">gTTS</span>
+          <span class="stack-badge">MoviePy</span>
+          <span class="stack-badge">HTML/CSS</span>
+        </div>
+        <div class="project-links">
+          <a class="project-btn" href="https://github.com/yourusername/art-docent" target="_blank" rel="noopener">
+            <svg width="20" height="20" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.215 0 1.6-.015 2.885-.015 3.28 0 .32.21.694.825.577C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+          <a class="project-btn" href="https://art-docent-demo.vercel.app/" target="_blank" rel="noopener">
+            🌐 Live
+          </a>
+        </div>
+      </div>
+      <!-- Project 2: Discourse Lens -->
+      <div class="project-card">
+        <img class="project-image" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Discourse Lens project image">
+        <div class="project-title">Discourse Lens</div>
+        <div class="project-desc">
+          Comprehensive discussion visualizer: advanced NLP, topic & argument visualization, timeline & sentiment analysis, and interactive feedback for conversations.
+        </div>
+        <div class="project-stack">
+          <span class="stack-badge">Python</span>
+          <span class="stack-badge">spaCy</span>
+          <span class="stack-badge">NLTK</span>
+          <span class="stack-badge">D3.js</span>
+          <span class="stack-badge">Flask</span>
+          <span class="stack-badge">React</span>
+          <span class="stack-badge">Chart.js</span>
+        </div>
+        <div class="project-links">
+          <a class="project-btn" href="https://github.com/yourusername/discourse-lens" target="_blank" rel="noopener">
+            <svg width="20" height="20" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.215 0 1.6-.015 2.885-.015 3.28 0 .32.21.694.825.577C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+          <a class="project-btn" href="https://discourse-lens-demo.vercel.app/" target="_blank" rel="noopener">
+            🌐 Live
+          </a>
+        </div>
+      </div>
+      <!-- Example Project 3: RouteVision AI -->
+      <div class="project-card">
+        <img class="project-image" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="RouteVision AI project image">
+        <div class="project-title">RouteVision AI</div>
+        <div class="project-desc">
+          Real-time AI-powered traffic monitoring and prediction system with camera network integration and urban mobility optimization.
+        </div>
+        <div class="project-stack">
+          <span class="stack-badge">Python</span>
+          <span class="stack-badge">OpenCV</span>
+          <span class="stack-badge">TensorFlow</span>
+          <span class="stack-badge">Flask</span>
+          <span class="stack-badge">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a class="project-btn" href="https://github.com/yourusername/routevision-ai" target="_blank" rel="noopener">
+            <svg width="20" height="20" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.215 0 1.6-.015 2.885-.015 3.28 0 .32.21.694.825.577C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+          <a class="project-btn" href="https://routevision-ai-demo.vercel.app/" target="_blank" rel="noopener">
+            🌐 Live
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<svg class="section-divider" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 Q360,80 720,40 T1440,40 V80 H0 Z" fill="#C5C5FF"/><path d="M0,60 Q360,20 720,60 T1440,60 V80 H0 Z" fill="#FFB5B5" opacity="0.3"/></svg> 
